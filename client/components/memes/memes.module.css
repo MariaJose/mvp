@@ -1,0 +1,11 @@
+ .memeImage {
+  width: 300px;
+  height: 300px;
+} 
+
+.memeButton {
+   background-color: transparent;
+   width: 300px;
+   height: 300px;
+   border: none;
+}
