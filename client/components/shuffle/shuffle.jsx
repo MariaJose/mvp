@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from '../random/random.module.css'
+import styles from './shuffle.module.css'
 
-const Random = ({onClick}) => {
+const Shuffle = ({onClick}) => {
   return (
     <button className={styles.buttonRandom} onClick={onClick}>
       <img className={styles.random}src="http://freevector.co/wp-content/uploads/2012/10/56691-random-circular-button.png"></img>
@@ -10,4 +10,4 @@ const Random = ({onClick}) => {
   )
 }
 
-export default  Random;
+export default  Shuffle;

@@ -1,17 +1,13 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import Memes from './components/memes/memes.jsx';
+import Joke from './components/joke/joke.jsx';
 import Motivational from './components/motivational/motivational.jsx';
-import Random from './components/random/random.jsx';
-import Trivia from './components/trivia/trivia.jsx';
+import Shuffle from './components/shuffle/shuffle.jsx';
+import DidYouKnow from './components/didYouKnow/didYouKnow.jsx';
 import styles from '../client/app.module.css';
 import Title from './components/title/title.jsx'
 import Bar from './components/bar/bar.jsx'
 import axios from 'axios';
-
-
-
-
 
 class App extends Component {
   constructor(props) {
@@ -21,14 +17,14 @@ class App extends Component {
       url: null
     }
 
-    this.handleClickMeme = this.handleClickMeme.bind(this);
+    this.handleClickJoke = this.handleClickJoke.bind(this);
     this.handleClickDidYouKnow = this.handleClickDidYouKnow.bind(this);
     this.handleClickMotivational = this.handleClickMotivational.bind(this);
     this.handleClickShuffle = this.handleClickShuffle.bind(this);
   }
 
 
-  handleClickMeme() {
+  handleClickJoke() {
     axios.get('https://sv443.net/jokeapi/category/Miscellaneous?blacklistFlags=nsfw,religious,political')
       .then(({ data }) => {
         if(data.type === "twopart") {
@@ -78,7 +74,7 @@ class App extends Component {
     const shuffle =  Math.floor(Math.random() * 2);
 
     if(shuffle === 0) {
-      this.handleClickMeme();
+      this.handleClickJoke();
     } else if (shuffle === 1) {
       this.handleClickDidYouKnow();
     } else if (shuffle === 2) {
@@ -97,9 +93,9 @@ class App extends Component {
         </div>
         <div className={styles.options}>
         <Motivational onClick={this.handleClickMotivational}/>
-        <Memes onClick={this.handleClickMeme}/>
-        <Trivia onClick={this.handleClickDidYouKnow}/>
-        <Random onClick={this.handleClickShuffle}/>
+        <Joke onClick={this.handleClickJoke}/>
+        <DidYouKnow onClick={this.handleClickDidYouKnow}/>
+        <Shuffle onClick={this.handleClickShuffle}/>
         </div>
         <div className={styles.containerMessage}>
           <div className={styles.message}>
